@@ -29,5 +29,19 @@ int main(){
 	else {
 		cout<<"yes";
 	}
+	// all subsets;
+	char a[]={
+		'a','b','c'
+	};
+	n=3;
+	int i;
+	for(i=0;i<(1<<n);i++){
+		for(j=0;j<3;j++){
+			if((i&(1<<j))!=0){
+				cout<<a[j];
+			}
+		}
+		cout<<"\n";
+	}
 	return 0;
 }
