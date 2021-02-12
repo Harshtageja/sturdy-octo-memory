@@ -1,29 +1,19 @@
 #include<iostream>
 using namespace std;
 int main(){
-	int a[]{
-		10,7,4,6,8,10,11
+	int a[]={
+		1,2,4,6,8,10,11,12
 	};
-	int s=0,e=0,i,sum=1,d=1;
-	int b[6];
-	for(i=0;i<6;i++){
-		b[i]=a[i+1]-a[i];
-	}
-	for(i=0;i<5;i++){
-		if(b[i]==b[i+1]){
-			sum++;
+	int i,j,count=1,maxc=0,d=0;
+	for(i=1;i<8;i++){
+		if(a[i]-a[i-1]==d){
+			count++;
 		}
 		else{
-			if(sum>d){
-				s=e;
-				e=i+1;
-				d=sum;
-				sum=1;
-				
-			}
-			
+			maxc=max(maxc,count);
+			d=a[i]-a[i-1];
 		}
 	}
-	cout<<s<<e;
+	cout<<maxc;
 	return 0;
 }
