@@ -5,3 +5,12 @@ select full_name as naam from customer_order_products where order_total between 
 select count(*) from customers left join orders on customers.customer_id=orders.customer_id;
 select count(*) from customers inner join orders on customers.customer_id=orders.customer_id;
 select* from customers left join orders on customers.customer_id=orders.customer_id where customers.customer_id=343;
+insert into customers values(393,'harshk','Harsh Tageja');
+insert into orders values(394,'13-SEP-18 04.00.07.171604 AM',394,'COMPLETE',1);
+select count(*) from customers right join orders on customers.customer_id=orders.customer_id;
+select count(*) from customers full join orders on customers.customer_id=orders.customer_id;
+select count(*) from customers A1,customers A2 where A1.customer_id<>A2.customer_id;
+select * from (select count(*) from customers where MOD(customer_id,2)<>0 UNION select count(*) from customers where MOD(customer_id,2)==0);
+select sum(cou) from (select count(*) as cou from customers where MOD(customer_id,2)<>0 UNION select count(*)  from customers where MOD(customer_id,2)=0);
+select count(*),customer_id from customer_order_products group by customer_id;
+select count(*),customer_id from customer_order_products group by customer_id having count(*)>8;
