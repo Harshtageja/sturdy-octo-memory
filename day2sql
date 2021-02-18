@@ -14,3 +14,5 @@ select * from (select count(*) from customers where MOD(customer_id,2)<>0 UNION 
 select sum(cou) from (select count(*) as cou from customers where MOD(customer_id,2)<>0 UNION select count(*)  from customers where MOD(customer_id,2)=0);
 select count(*),customer_id from customer_order_products group by customer_id;
 select count(*),customer_id from customer_order_products group by customer_id having count(*)>8;
+Select FULL_NAME FROM CUSTOMERS WHERE EXISTS (SELECT * FROM ORDERS WHERE ORDERS.CUSTOMER_ID=CUSTOMERS.CUSTOMER_ID AND ORDER_STATUS<>'COMPLETE');
+SELECT FULL_NAME FROM CUSTOMERS WHERE CUSTOMER_ID=ANY(SELECT CUSTOMER_ID FROM ORDERS WHERE ORDER_STATUS='COMPLETE');
