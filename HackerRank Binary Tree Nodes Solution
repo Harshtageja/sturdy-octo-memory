@@ -1,0 +1,11 @@
+select N ,
+case
+   when exists(select N from BST t2 where t1.n=t2.n and t2.p IS NULL)
+ then 'Root'
+ when exists( select t2.N from BST t2,BST t3 where t1.n=t2.n and t2.n=t3.p )
+ then 'Inner'
+ else
+ 'Leaf'
+ end as qt
+from BST t1
+order by N;
