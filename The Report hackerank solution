@@ -1,0 +1,3 @@
+select case
+ when grades.grade>=8 then students.name
+ else NULL end as Name,grades.grade,students.marks from students inner join grades on students.marks>=grades.min_mark and students.marks<=grades.max_mark order by grades.grade desc, students.name;
