@@ -1,0 +1,6 @@
+select h.hacker_id,h.name,count(*) as c1 from hackers h inner join challenges c on h.hacker_id=c.hacker_id
+group by h.hacker_id,h.name having (c1=(select max(m1.c3) from(select count(*)as c3 from hackers h1 inner join
+challenges c2 on h1.hacker_id=c2.hacker_id group by h1.hacker_id)m1)) or 1>(select count(*) from (select h2.hacker_id as id1,
+count(*) as c5 from hackers h2 inner join 
+challenges c4 on h2.hacker_id=c4.hacker_id group by id1)m1,(select h3.hacker_id as id1,count(*) as c5 from hackers h3
+inner join challenges c6 on h3.hacker_id=c6.hacker_id group by id1)m2 where m1.id1<>m2.id1 and m1.c5=m2.c5 and h.hacker_id=m1.id1)
