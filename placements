@@ -1,0 +1,3 @@
+select s1.name from friends inner join students s1 on friends.id=s1.id inner join students s2 
+on friends.friend_id=s2.id inner join packages p1 on p1.id=friends.id 
+inner join packages p2 on p2.id=friends.friend_id where p2.salary>p1.salary order by p2.salary;
