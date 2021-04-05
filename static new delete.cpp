@@ -1,25 +1,26 @@
+#include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
-class node{
-	public:
-		int data;
-		node*next;
-};
-class Box{
+class box{
 	public:
 		static int count;
-		int l;
-		Box(){
+		box(){
 			count++;
 		}
 };
-int Box::count=0;
+class node{
+	public:
+		int data;
+		node*head;
+};
+int box::count=0;
 int main(){
+	box b1;
+	box b2;
+	//cout<<b2.count;
 	node*head=new node;
 	head->data=5;
-	delete head;
-	Box b1;
-	Box b2;
-	cout<<b2.count;
+	delete(head);
+	cout<<head->data;
 	return 0;
 }
